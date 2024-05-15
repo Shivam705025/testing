@@ -21,22 +21,16 @@
             height: 100%;
             z-index: -1; /* Place stars behind other content */
             pointer-events: none; /* Prevent interaction with stars */
-            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.8) 1%, transparent 1%);
-            background-size: 2px 2px; /* Size of stars */
-            animation: twinkling 5s infinite; /* Twinkling animation */
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.8) 1%, transparent 2%);
+            background-size: 1000% 1000%; /* Size of stars */
+            animation: twinkling 10s linear infinite; /* Twinkling animation */
         }
         @keyframes twinkling {
             0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            50% {
-                transform: translateY(-200px) rotate(180deg);
-                opacity: 1;
+                background-position: 0% 0%; /* Start position of background */
             }
             100% {
-                transform: translateY(-400px) rotate(360deg);
-                opacity: 0;
+                background-position: 100% 100%; /* End position of background */
             }
         }
         /* Centered content container */
