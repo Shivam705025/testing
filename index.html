@@ -1,61 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starry Night</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            overflow: hidden; /* Hide overflow to prevent scrollbars */
-        }
-        #stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Place stars behind other content */
-            pointer-events: none; /* Prevent interaction with stars */
-            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.8) 1%, transparent 2%);
-            background-size: 1000% 1000%; /* Size of stars */
-            animation: twinkling 10s linear infinite; /* Twinkling animation */
-        }
-        @keyframes twinkling {
-            0% {
-                background-position: 0% 0%; /* Start position of background */
-            }
-            100% {
-                background-position: 100% 100%; /* End position of background */
-            }
-        }
-        /* Centered content container */
-        #content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        h1 {
-            font-size: 3em;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starry Night</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Hide overflow to prevent scrollbars */
+    }
+    #stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Place stars behind other content */
+      pointer-events: none; /* Prevent interaction with stars */
+      background-image: radial-gradient(circle, rgba(255, 255, 255, 0.8) 1%, transparent 2%);
+      background-size: 400% 400%; /* Adjusted size for animation */
+      animation: twinkling 5s linear infinite; /* Twinkling animation */
+    }
+    @keyframes twinkling {
+      0% {
+        background-position: 0% 0%; /* Start position of background */
+      }
+      100% {
+        background-position: 100% 100%; /* End position of background */
+      }
+    }
+    /* Centered content container */
+    #content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3em;
+    }
+  </style>
 </head>
 <body>
-    <!-- Stars background -->
-    <div id="stars"></div>
-    
-    <!-- Content -->
-    <div id="content">
-        <div>
-            <h1>Welcome to a Starry Night</h1>
-            <p>Enjoy the twinkling stars...</p>
-        </div>
+  <div id="stars"></div>
+   
+  <div id="content">
+    <div>
+      <h1>Welcome to a Starry Night</h1>
+      <p>Enjoy the twinkling stars...</p>
     </div>
+  </div>
 </body>
 </html>
