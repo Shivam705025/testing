@@ -21,34 +21,12 @@
       height: 100%;
       z-index: -1; /* Place stars behind other content */
       pointer-events: none; /* Prevent interaction with stars */
-      background-image: radial-gradient(circle, rgba(255, 255, 255, 0.8) 1%, transparent 2%);
-      background-size: 100% 100%; /* Adjusted size for animation */
-      animation: twinkling 5s linear infinite; /* Twinkling animation */
-    }
-    @keyframes twinkling {
-      0% {
-        background-position: 0% 0%; /* Start position of background */
-      }
-      100% {
-        background-position: 100% 100%; /* End position of background */
-      }
-    }
-    /* Centered content container */
-    #content {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3em;
     }
   </style>
 </head>
 <body>
   <div id="stars"></div>
-   
+  
   <div id="content">
     <div>
       <h1>Welcome to a Starry Night</h1>
