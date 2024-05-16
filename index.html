@@ -7,8 +7,8 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f0f0;
-      color: #333;
+      background-color: #000;
+      color: #fff;
       margin: 0;
       padding: 20px;
       display: flex;
@@ -20,15 +20,15 @@
     .container {
       max-width: 800px;
       width: 90%;
-      background-color: #fff;
+      background-color: #333;
       padding: 40px;
       border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
     }
 
     h1 {
       font-size: 2.5em;
-      color: #555;
+      color: #fff;
       margin-bottom: 30px;
       text-align: center;
     }
@@ -45,25 +45,27 @@
       width: calc(25% - 20px);
       padding: 20px;
       border-radius: 10px;
-      background-color: #f8f8f8;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      background-color: #444;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
+      position: relative;
     }
 
     .timeline-item:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
     }
 
     .dot {
       height: 20px;
       width: 20px;
       border-radius: 50%;
-      background-color: #007bff;
+      background-color: #fff;
       position: absolute;
       top: 20px;
       left: 50%;
       transform: translateX(-50%);
+      z-index: 1;
     }
 
     .content {
@@ -73,14 +75,28 @@
 
     h3 {
       font-size: 1.5em;
-      color: #333;
+      color: #fff;
       margin-bottom: 10px;
     }
 
     p {
       font-size: 1.1em;
-      color: #666;
+      color: #ccc;
       line-height: 1.6;
+    }
+
+    .diagram {
+      margin-top: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .diagram img {
+      width: 70%;
+      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
     }
   </style>
 </head>
@@ -116,6 +132,10 @@
           <p>Continued development and innovation to drive coin adoption and value. Exploration of new use cases and market opportunities.</p>
         </div>
       </div>
+    </div>
+
+    <div class="diagram">
+      <img src="https://via.placeholder.com/800x400" alt="Roadmap Diagram">
     </div>
   </div>
 </body>
