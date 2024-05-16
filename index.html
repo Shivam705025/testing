@@ -9,20 +9,23 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #222; /* Dark background */
+      background: linear-gradient(to right, #020111, #191621, #040e2e);
       color: #fff; /* White text */
+      overflow-x: hidden; /* Hide horizontal overflow */
     }
 
     header {
-      background-color: #111; /* Slightly darker header */
+      background-color: #111; /* Dark header */
       padding: 20px;
       text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
 
     h1 {
       font-size: 3em;
       margin-bottom: 0;
       color: #fff; /* White heading */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 
     main {
@@ -41,22 +44,24 @@
       width: calc(33% - 20px);
       margin: 10px;
       padding: 20px;
-      background-color: #333; /* Darker background for roadmap items */
+      background: linear-gradient(to bottom right, #222, #333); /* Dark gradient background */
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      border-radius: 5px;
+      border-radius: 10px;
       color: #fff; /* White text for roadmap items */
       text-align: center;
       transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .roadmap-item:hover {
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
       transform: translateY(-5px); /* Hover effect */
     }
 
     .roadmap-item h2 {
       font-size: 1.8em;
       margin-bottom: 15px;
+      color: #ffc107; /* Yellow text */
     }
 
     .roadmap-item p {
@@ -65,7 +70,7 @@
 
     .progress-bar {
       height: 10px;
-      background-color: #444; /* Darker background for progress bar track */
+      background: linear-gradient(to right, #444, #888); /* Gradient progress bar */
       border-radius: 5px;
       margin-bottom: 10px;
     }
@@ -77,22 +82,22 @@
     }
 
     .progress.complete {
-      background-color: #2e8b57; /* Adjust progress bar fill color for completed phase */
+      background-color: #2e8b57; /* Green progress for completed phase */
     }
 
     .progress.ongoing {
-      background-color: #ffc107; /* Adjust progress bar fill color for ongoing phase */
-    }
-
-    .roadmap-item:nth-child(3) .progress { /* Style for incomplete progress bars */
-      background-color: #ccc; /* Adjust incomplete progress bar fill color */
+      background-color: #ffc107; /* Yellow progress for ongoing phase */
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background-color: #111; /* Slightly darker footer */
+      background-color: #111; /* Dark footer */
       color: #fff; /* White text */
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
     }
 
     /* Additional Styling */
@@ -101,6 +106,15 @@
       text-align: center;
       margin-bottom: 40px;
       color: #fff;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Custom Designs */
+    .custom-design {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: -1;
     }
   </style>
 </head>
@@ -109,8 +123,16 @@
     <h1>Your Meme Coin: Roadmap</h1>
   </header>
   <main>
+    <div class="custom-design">
+      <!-- Custom SVG Illustration (Example) -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 24 24">
+        <path fill="#ffc107" d="M12 0c6.628 0 12 5.372 12 12s-5.372 12-12 12S0 18.628 0 12 5.372 0 12 0zm0 20c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm-2-13h4v8h-4v-8zm0 10h4v2h-4v-2z"/>
+      </svg>
+    </div>
+
     <h2 class="section-heading">Current Roadmap</h2>
     <section class="roadmap-container">
+      <!-- Roadmap Items (Example) -->
       <div class="roadmap-item">
         <h2>Phase 1: Launch & Community Building (Completed)</h2>
         <p>Describe your coin launch strategy, community engagement plans, and marketing initiatives.</p>
@@ -125,34 +147,7 @@
           <div class="progress ongoing"></div>
         </div>
       </div>
-      <div class="roadmap-item">
-        <h2>Phase 3: Ecosystem Growth (Upcoming)</h2>
-        <p>Expand partnerships, integrate with DeFi, and introduce staking and governance features.</p>
-        <div class="progress-bar">
-          <div class="progress"></div>
-        </div>
-      </div>
-      <div class="roadmap-item">
-        <h2>Phase 4: Long-Term Vision (Future)</h2>
-        <p>Drive adoption, explore new use cases, and expand market opportunities.</p>
-        <div class="progress-bar">
-          <div class="progress"></div>
-        </div>
-      </div>
-      <div class="roadmap-item">
-        <h2>Phase 5: Community Expansion (TBD)</h2>
-        <p>Engage with new communities, launch community initiatives, and enhance outreach.</p>
-        <div class="progress-bar">
-          <div class="progress"></div>
-        </div>
-      </div>
-      <div class="roadmap-item">
-        <h2>Phase 6: Continued Innovation (TBD)</h2>
-        <p>Stay ahead with innovation, address feedback, and adapt to market trends.</p>
-        <div class="progress-bar">
-          <div class="progress"></div>
-        </div>
-      </div>
+      <!-- Add more roadmap items with custom designs -->
     </section>
   </main>
   <footer>
