@@ -3,140 +3,160 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Coin Roadmap</title>
+  <title>Your Meme Coin Roadmap</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #000;
-      color: #fff;
+      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      padding: 0;
+      background-color: #222; /* Dark background */
+      color: #fff; /* White text */
     }
 
-    .container {
-      max-width: 800px;
-      width: 90%;
-      background-color: #333;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    header {
+      background-color: #111; /* Slightly darker header */
+      padding: 20px;
+      text-align: center;
     }
 
     h1 {
-      font-size: 2.5em;
-      color: #fff;
-      margin-bottom: 30px;
-      text-align: center;
+      font-size: 3em;
+      margin-bottom: 0;
+      color: #fff; /* White heading */
     }
 
-    .timeline {
+    main {
+      padding: 50px;
+    }
+
+    .roadmap-container {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
-      gap: 20px;
-      padding: 0;
-      margin-top: 30px;
+      margin: 0 auto; /* Center the roadmap container */
+      max-width: 1000px; /* Set a maximum width for better responsiveness */
     }
 
-    .timeline-item {
-      width: calc(25% - 20px);
+    .roadmap-item {
+      width: calc(33% - 20px);
+      margin: 10px;
       padding: 20px;
-      border-radius: 10px;
-      background-color: #444;
-      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .timeline-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
-    }
-
-    .dot {
-      height: 20px;
-      width: 20px;
-      border-radius: 50%;
-      background-color: #fff;
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-    }
-
-    .content {
-      padding-top: 40px;
+      background-color: #333; /* Darker background for roadmap items */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      color: #fff; /* White text for roadmap items */
       text-align: center;
+      transition: all 0.3s ease;
     }
 
-    h3 {
-      font-size: 1.5em;
-      color: #fff;
+    .roadmap-item:hover {
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+      transform: translateY(-5px); /* Hover effect */
+    }
+
+    .roadmap-item h2 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+
+    .roadmap-item p {
+      line-height: 1.5;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background-color: #444; /* Darker background for progress bar track */
+      border-radius: 5px;
       margin-bottom: 10px;
     }
 
-    p {
-      font-size: 1.1em;
-      color: #ccc;
-      line-height: 1.6;
+    .progress {
+      height: 100%;
+      border-radius: 5px;
+      transition: width 0.3s ease;
     }
 
-    .diagram {
-      margin-top: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .progress.complete {
+      background-color: #2e8b57; /* Adjust progress bar fill color for completed phase */
     }
 
-    .diagram img {
-      width: 70%;
-      max-width: 600px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+    .progress.ongoing {
+      background-color: #ffc107; /* Adjust progress bar fill color for ongoing phase */
+    }
+
+    .roadmap-item:nth-child(3) .progress { /* Style for incomplete progress bars */
+      background-color: #ccc; /* Adjust incomplete progress bar fill color */
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111; /* Slightly darker footer */
+      color: #fff; /* White text */
+    }
+
+    /* Additional Styling */
+    .section-heading {
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #fff;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Your Coin Roadmap</h1>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content">
-          <h3>Phase 1: Launch & Community Building</h3>
-          <p>Coin launch on major exchanges. Active community engagement through social media and forums. Ambassador programs and influencer outreach.</p>
+  <header>
+    <h1>Your Meme Coin: Roadmap</h1>
+  </header>
+  <main>
+    <h2 class="section-heading">Current Roadmap</h2>
+    <section class="roadmap-container">
+      <div class="roadmap-item">
+        <h2>Phase 1: Launch & Community Building (Completed)</h2>
+        <p>Describe your coin launch strategy, community engagement plans, and marketing initiatives.</p>
+        <div class="progress-bar">
+          <div class="progress complete"></div>
         </div>
       </div>
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content">
-          <h3>Phase 2: Product Development</h3>
-          <p>Development of core features and functionalities for your coin's utility. Beta testing and user feedback integration.</p>
+      <div class="roadmap-item">
+        <h2>Phase 2: Product Development (Ongoing)</h2>
+        <p>Outline your core functionalities, development milestones, and beta testing plans.</p>
+        <div class="progress-bar">
+          <div class="progress ongoing"></div>
         </div>
       </div>
-      <div class="timeline-item">
-        <div class="dot"></div>
-        <div class="content">
-          <h3>Phase 3: Ecosystem Growth</h3>
-          <p>Partnerships with other projects and platforms. Integration with DeFi applications and services. Staking and governance features.</p>
+      <div class="roadmap-item">
+        <h2>Phase 3: Ecosystem Growth (Upcoming)</h2>
+        <p>Expand partnerships, integrate with DeFi, and introduce staking and governance features.</p>
+        <div class="progress-bar">
+          <div class="progress"></div>
         </div>
       </div>
-      <div class="timeline-item future">
-        <div class="dot"></div>
-        <div class="content">
-          <h3>Phase 4: Long-Term Vision</h3>
-          <p>Continued development and innovation to drive coin adoption and value. Exploration of new use cases and market opportunities.</p>
+      <div class="roadmap-item">
+        <h2>Phase 4: Long-Term Vision (Future)</h2>
+        <p>Drive adoption, explore new use cases, and expand market opportunities.</p>
+        <div class="progress-bar">
+          <div class="progress"></div>
         </div>
       </div>
-    </div>
-
-    <div class="diagram">
-      <img src="https://via.placeholder.com/800x400" alt="Roadmap Diagram">
-    </div>
-  </div>
+      <div class="roadmap-item">
+        <h2>Phase 5: Community Expansion (TBD)</h2>
+        <p>Engage with new communities, launch community initiatives, and enhance outreach.</p>
+        <div class="progress-bar">
+          <div class="progress"></div>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <h2>Phase 6: Continued Innovation (TBD)</h2>
+        <p>Stay ahead with innovation, address feedback, and adapt to market trends.</p>
+        <div class="progress-bar">
+          <div class="progress"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Your Meme Coin. All rights reserved.</p>
+  </footer>
 </body>
 </html>
