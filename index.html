@@ -3,34 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Starry Night</title>
+  <title>Your Coin Roadmap</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
       margin: 0;
-      padding: 0;
-      overflow: hidden; /* Hide overflow to prevent scrollbars */
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
-    #stars {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1; /* Place stars behind other content */
-      pointer-events: none; /* Prevent interaction with stars */
+
+    .container {
+      max-width: 800px;
+      width: 90%;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #555;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0;
+      margin-top: 30px;
+    }
+
+    .timeline-item {
+      width: calc(25% - 20px);
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #f8f8f8;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .dot {
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background-color: #007bff;
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .content {
+      padding-top: 40px;
+      text-align: center;
+    }
+
+    h3 {
+      font-size: 1.5em;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1em;
+      color: #666;
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
-  <div id="stars"></div>
-  
-  <div id="content">
-    <div>
-      <h1>Welcome to a Starry Night</h1>
-      <p>Enjoy the twinkling stars...</p>
+  <div class="container">
+    <h1>Your Coin Roadmap</h1>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="dot"></div>
+        <div class="content">
+          <h3>Phase 1: Launch & Community Building</h3>
+          <p>Coin launch on major exchanges. Active community engagement through social media and forums. Ambassador programs and influencer outreach.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="dot"></div>
+        <div class="content">
+          <h3>Phase 2: Product Development</h3>
+          <p>Development of core features and functionalities for your coin's utility. Beta testing and user feedback integration.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="dot"></div>
+        <div class="content">
+          <h3>Phase 3: Ecosystem Growth</h3>
+          <p>Partnerships with other projects and platforms. Integration with DeFi applications and services. Staking and governance features.</p>
+        </div>
+      </div>
+      <div class="timeline-item future">
+        <div class="dot"></div>
+        <div class="content">
+          <h3>Phase 4: Long-Term Vision</h3>
+          <p>Continued development and innovation to drive coin adoption and value. Exploration of new use cases and market opportunities.</p>
+        </div>
+      </div>
     </div>
   </div>
 </body>
