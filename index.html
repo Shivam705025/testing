@@ -1,117 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beautiful Dark Drawing Board</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #1e1e1e;
-            color: #fff;
-            font-family: 'Arial', sans-serif;
-        }
-
-        #canvas {
-            display: block;
-            margin: auto;
-            border: 2px solid #fff;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-        }
-
-        #tokenomics {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            color: transparent;
-            font-size: 18px;
-            white-space: pre-wrap;
-            background-image: linear-gradient(45deg, #ffecd2, #fcb69f, #fa8c7d, #f6625b, #ee3351);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            animation: rainbow 5s infinite linear;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-        }
-
-        @keyframes rainbow {
-            0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        #footer {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            font-size: 14px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Drawing Board</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #121212;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+    }
+    #canvas {
+        background-color: #1f1f1f;
+        display: block;
+        margin: 20px auto;
+    }
+</style>
 </head>
 <body>
-    <canvas id="canvas" width="800" height="400"></canvas>
-    <div id="tokenomics">
-        Tokenomics:
-        <br>
-        - Total Supply: 1,000,000,000 Cosmic Cat Coins
-        <br>
-        - Initial Distribution:
-        <br>
-        &nbsp;&nbsp;- 60% for Presale and Liquidity Pool
-        <br>
-        &nbsp;&nbsp;- 20% for Team and Advisors
-        <br>
-        &nbsp;&nbsp;- 10% for Marketing and Partnerships
-        <br>
-        &nbsp;&nbsp;- 5% for Ecosystem Development
-        <br>
-        &nbsp;&nbsp;- 5% for Community Rewards
-    </div>
-
-    <div id="footer">
-        Designed by [Your Name] | © 2024 Cosmic Cat Coin
-    </div>
-
+    <canvas id="canvas" width="800" height="600"></canvas>
     <script>
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d');
+        ctx.strokeStyle = '#ff00ff'; // Initial sketch color
+        ctx.lineWidth = 3; // Initial line width
+        let isDrawing = false;
 
-        // Drawing animation
-        const drawText = (text, x, y, size) => {
-            ctx.font = `${size}px Arial`;
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-            ctx.fillText(text, x, y);
-        };
+        function draw(event) {
+            if (!isDrawing) return;
+            ctx.lineTo(event.offsetX, event.offsetY);
+            ctx.stroke();
+        }
 
-        const tokenomicsText = `
-            Tokenomics:
-            - Total Supply: 1,000,000,000 Cosmic Cat Coins
-            - Initial Distribution:
-              - 60% for Presale and Liquidity Pool
-              - 20% for Team and Advisors
-              - 10% for Marketing and Partnerships
-              - 5% for Ecosystem Development
-              - 5% for Community Rewards
-        `;
+        canvas.addEventListener('mousedown', (event) => {
+            isDrawing = true;
+            ctx.beginPath();
+            ctx.moveTo(event.offsetX, event.offsetY);
+            canvas.addEventListener('mousemove', draw);
+        });
 
-        const init = () => {
-            drawText(tokenomicsText, 50, 80, 20);
-        };
+        canvas.addEventListener('mouseup', () => {
+            isDrawing = false;
+            canvas.removeEventListener('mousemove', draw);
+        });
 
-        init();
+        canvas.addEventListener('mouseout', () => {
+            isDrawing = false;
+            canvas.removeEventListener('mousemove', draw);
+        });
+
+        // Function to change sketch color
+        function changeColor(color) {
+            ctx.strokeStyle = color;
+        }
+
+        // Function to change line width
+        function changeLineWidth(width) {
+            ctx.lineWidth = width;
+        }
+
+        // Function to clear canvas
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
     </script>
 </body>
 </html>
