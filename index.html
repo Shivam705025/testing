@@ -3,142 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Themed Video Player</title>
+    <title>Dark Themed Notepad</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-color: #121212;
+            background-color: #1e1e1e;
             color: #ffffff;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-        }
-        .container {
-            max-width: 800px;
-            width: 100%;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            background-color: #1e1e1e;
-        }
-        .video-player {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-        .video-player video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.7);
-            position: absolute;
-            bottom: 0;
-            width: 100%;
             box-sizing: border-box;
         }
-        .controls button {
-            background: none;
-            border: none;
-            color: #ffffff;
-            font-size: 16px;
-            cursor: pointer;
+        .notepad-container {
+            width: 80%;
+            max-width: 800px;
+            background-color: #252525;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
         }
-        .controls input[type="range"] {
+        .notepad-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle, #454545 20%, transparent 60%);
+            opacity: 0.2;
+            pointer-events: none;
         }
-        .controls .time {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+        .notepad-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #ffffff;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+        .text-display {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            font-size: 1.2em;
+            line-height: 1.6;
+            overflow-y: auto;
+            max-height: 400px;
+        }
+        .text-display p {
+            margin: 0 0 15px;
+        }
+        .text-display p:last-child {
+            margin: 0;
+        }
+        .text-display p::before {
+            content: '"';
+            color: #777777;
+        }
+        .text-display p::after {
+            content: '"';
+            color: #777777;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="video-player">
-            <video id="video" src="your-video-file.mp4" controls></video>
-            <div class="controls">
-                <button id="play-pause">Play</button>
-                <input type="range" id="seek-bar" value="0">
-                <div class="time">
-                    <span id="current-time">0:00</span> / 
-                    <span id="duration">0:00</span>
-                </div>
-                <button id="mute">Mute</button>
-                <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
-                <button id="fullscreen">Fullscreen</button>
-            </div>
+    <div class="notepad-container">
+        <h1>Dark Themed Notepad</h1>
+        <div class="text-display">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
     </div>
-
-    <script>
-        const video = document.getElementById('video');
-        const playPauseButton = document.getElementById('play-pause');
-        const muteButton = document.getElementById('mute');
-        const fullscreenButton = document.getElementById('fullscreen');
-        const seekBar = document.getElementById('seek-bar');
-        const volumeBar = document.getElementById('volume-bar');
-        const currentTimeDisplay = document.getElementById('current-time');
-        const durationDisplay = document.getElementById('duration');
-
-        video.addEventListener('loadedmetadata', () => {
-            durationDisplay.textContent = formatTime(video.duration);
-        });
-
-        video.addEventListener('timeupdate', () => {
-            seekBar.value = (video.currentTime / video.duration) * 100;
-            currentTimeDisplay.textContent = formatTime(video.currentTime);
-        });
-
-        playPauseButton.addEventListener('click', () => {
-            if (video.paused) {
-                video.play();
-                playPauseButton.textContent = 'Pause';
-            } else {
-                video.pause();
-                playPauseButton.textContent = 'Play';
-            }
-        });
-
-        muteButton.addEventListener('click', () => {
-            video.muted = !video.muted;
-            muteButton.textContent = video.muted ? 'Unmute' : 'Mute';
-        });
-
-        fullscreenButton.addEventListener('click', () => {
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) { /* Safari */
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) { /* IE11 */
-                video.msRequestFullscreen();
-            }
-        });
-
-        seekBar.addEventListener('input', () => {
-            const seekTime = (seekBar.value / 100) * video.duration;
-            video.currentTime = seekTime;
-        });
-
-        volumeBar.addEventListener('input', () => {
-            video.volume = volumeBar.value;
-        });
-
-        function formatTime(seconds) {
-            const minutes = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
-        }
-    </script>
 </body>
 </html>
