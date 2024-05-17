@@ -3,122 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Themed Website</title>
+    <title>About Cosmic Cat Coin</title>
     <style>
         body {
-            background-color: #121212;
+            background-color: #0a0a0a;
             color: #ffffff;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
         }
 
         .container {
             text-align: center;
+            max-width: 800px;
+            padding: 20px;
         }
 
-        header h1 {
-            margin-bottom: 20px;
-            font-size: 2.5rem;
+        h1 {
+            font-size: 3rem;
+            color: #ff6ec7;
+            text-shadow: 0 0 10px #ff6ec7, 0 0 20px #ff6ec7, 0 0 30px #ff6ec7, 0 0 40px #ff6ec7, 0 0 50px #ff6ec7;
         }
 
-        .social-buttons {
-            margin-bottom: 30px;
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
         }
 
-        .btn {
+        .highlight {
+            color: #ff6ec7;
+            text-shadow: 0 0 5px #ff6ec7, 0 0 10px #ff6ec7;
+        }
+
+        .glow-text {
+            color: #ffffff;
+            text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ff6ec7, 0 0 30px #ff6ec7, 0 0 40px #ff6ec7, 0 0 55px #ff6ec7, 0 0 75px #ff6ec7;
+        }
+
+        .cta-button {
             display: inline-block;
+            margin-top: 20px;
             padding: 10px 20px;
-            margin: 10px;
             font-size: 1.2rem;
             color: #ffffff;
-            text-decoration: none;
-            border: 2px solid #ffffff;
+            background-color: #ff6ec7;
+            border: none;
             border-radius: 5px;
-            position: relative;
-            overflow: hidden;
-            transition: color 0.3s ease, border-color 0.3s ease;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
-        .btn i {
-            margin-right: 10px;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(45deg);
-            transition: all 0.5s ease;
-        }
-
-        .btn:hover::before {
-            top: -25%;
-            left: -25%;
-            width: 150%;
-            height: 150%;
-            background: rgba(255, 255, 255, 0.4);
-        }
-
-        .btn:hover {
-            color: #000000;
-            border-color: #000000;
-        }
-
-        .telegram {
-            background-color: #0088cc;
-        }
-
-        .twitter {
-            background-color: #1da1f2;
-        }
-
-        .image-gallery {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .image-gallery img {
-            width: 400px;
-            height: auto;
-            border: 3px solid #ffffff;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .image-gallery img:hover {
+        .cta-button:hover {
+            background-color: #ff89d4;
             transform: scale(1.05);
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Welcome to My Dark Themed Website</h1>
-        </header>
-        <main>
-            <div class="social-buttons">
-                <a href="https://telegram.org" target="_blank" class="btn telegram">
-                    <i class="fab fa-telegram-plane"></i> Join Telegram
-                </a>
-                <a href="https://twitter.com" target="_blank" class="btn twitter">
-                    <i class="fab fa-twitter"></i> Follow on Twitter
-                </a>
-            </div>
-            <div class="image-gallery">
-                <img src="https://via.placeholder.com/400" alt="Sample Image 1">
-                <img src="https://via.placeholder.com/400" alt="Sample Image 2">
-            </div>
-        </main>
+        <h1>About Cosmic Cat Coin</h1>
+        <p>Ever since I was a kitten, I've been fascinated by two things: the <span class="highlight">boundless beauty of the cosmos</span> and the unwavering companionship of cats. Growing up surrounded by both, I dreamt of a future where these two passions could coexist. That's where Cosmic Cat Coin comes in!</p>
+
+        <p>My journey into cryptocurrency started with a spark of curiosity. The potential for decentralization, community-driven innovation, and the power to reshape the financial landscape resonated deeply with me. But the existing crypto scene often felt... serious. Where were the playful moments, the purrfectly timed cat puns?</p>
+
+        <p>Cosmic Cat Coin is my answer. I believe in building a crypto experience that's both innovative and engaging. A place where the power of blockchain technology can be harnessed for good, while still embracing the joy and lightheartedness cats bring to our lives.</p>
+
+        <p>Beyond my love for felines and the cosmos, I'm also:</p>
+        <ul>
+            <li class="glow-text">A passionate developer: I have [number] years of experience in [your development expertise] and am constantly learning and pushing the boundaries of what's possible.</li>
+            <li class="glow-text">A community builder: I thrive on creating spaces where people can connect, collaborate, and share their love for cats and crypto.</li>
+            <li class="glow-text">A believer in transparency: Open communication and a commitment to ethical practices are at the heart of everything I do.</li>
+        </ul>
+
+        <p>My dedication to Cosmic Cat Coin is unwavering. Building a successful project requires a team, and I'm constantly seeking out talented and passionate individuals who share my vision. Together, we're fostering a thriving community that purrs with innovation and determination.</p>
+
+        <p>Join us on this cosmic adventure! Let's explore the vast possibilities of blockchain technology, all while celebrating the joy cats bring to our lives.</p>
+
+        <p>P.S. Keep an eye out for future updates – there might just be some cat-tastic surprises in store!</p>
+
+        <a href="#" class="cta-button">Join Our Community</a>
     </div>
 </body>
 </html>
