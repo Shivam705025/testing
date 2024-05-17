@@ -3,36 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glittering Dark Notepad</title>
+    <title>Beautiful Dark Drawing Board</title>
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Courier New', Courier, monospace;
             background-color: #1e1e1e;
-            color: #f0f0f0;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
         }
 
-        .notepad {
-            width: 80%;
-            margin: 50px auto;
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            overflow: auto;
-            max-height: 500px;
-            animation: sparkle 5s infinite alternate;
+        #canvas {
+            display: block;
+            margin: auto;
+            border: 2px solid #fff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
 
-        #text {
-            white-space: pre-wrap;
+        #tokenomics {
+            position: absolute;
+            top: 20px;
+            left: 20px;
             color: transparent;
-            background-image: linear-gradient(45deg, #f3ffbd, #ffecb8, #ffcad4, #d7aefb, #a6c1ee, #90d8ff, #6de8d9, #64f38c, #ffff85, #ffcd8c, #ffabab, #d3c1ff);
+            font-size: 18px;
+            white-space: pre-wrap;
+            background-image: linear-gradient(45deg, #ffecd2, #fcb69f, #fa8c7d, #f6625b, #ee3351);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             background-clip: text;
             animation: rainbow 5s infinite linear;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
 
         @keyframes rainbow {
@@ -49,47 +51,67 @@
             }
         }
 
-        @keyframes sparkle {
-            0% {
-                box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-            }
-
-            50% {
-                box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-            }
-
-            100% {
-                box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-            }
+        #footer {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
-    <div class="notepad">
-        <pre id="text"></pre>
+    <canvas id="canvas" width="800" height="400"></canvas>
+    <div id="tokenomics">
+        Tokenomics:
+        <br>
+        - Total Supply: 1,000,000,000 Cosmic Cat Coins
+        <br>
+        - Initial Distribution:
+        <br>
+        &nbsp;&nbsp;- 60% for Presale and Liquidity Pool
+        <br>
+        &nbsp;&nbsp;- 20% for Team and Advisors
+        <br>
+        &nbsp;&nbsp;- 10% for Marketing and Partnerships
+        <br>
+        &nbsp;&nbsp;- 5% for Ecosystem Development
+        <br>
+        &nbsp;&nbsp;- 5% for Community Rewards
+    </div>
+
+    <div id="footer">
+        Designed by [Your Name] | © 2024 Cosmic Cat Coin
     </div>
 
     <script>
-        const textElement = document.getElementById('text');
-        const text = `Welcome to Glittering Dark Notepad!
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
 
-This is a beautiful dark-themed notepad.
-Here you can type or just enjoy the predefined text as if it's being typed automatically.
-Isn't it cool?
-`;
+        // Drawing animation
+        const drawText = (text, x, y, size) => {
+            ctx.font = `${size}px Arial`;
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.fillText(text, x, y);
+        };
 
-        let index = 0;
+        const tokenomicsText = `
+            Tokenomics:
+            - Total Supply: 1,000,000,000 Cosmic Cat Coins
+            - Initial Distribution:
+              - 60% for Presale and Liquidity Pool
+              - 20% for Team and Advisors
+              - 10% for Marketing and Partnerships
+              - 5% for Ecosystem Development
+              - 5% for Community Rewards
+        `;
 
-        function typeText() {
-            textElement.innerText = text.slice(0, index);
-            index++;
+        const init = () => {
+            drawText(tokenomicsText, 50, 80, 20);
+        };
 
-            if (index > text.length) {
-                clearInterval(timer);
-            }
-        }
-
-        const timer = setInterval(typeText, 50);
+        init();
     </script>
 </body>
 </html>
