@@ -44,14 +44,37 @@
         canvas.width = 600;
         canvas.height = 400;
 
-        // Draw colorful cat sketch
-        // You need to replace this part with your own cat sketch drawing code
-        ctx.fillStyle = 'red';
-        ctx.fillRect(50, 50, 50, 50); // Sample drawing, replace this
-        ctx.fillStyle = 'blue';
-        ctx.fillRect(150, 150, 50, 50); // Sample drawing, replace this
+        // Define your cat sketch drawing code
+        function drawCatSketch() {
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // Add more drawing code to create your cat sketch
+            // Draw the sketch gradually
+            let x = 0;
+            let y = 0;
+            let step = 5; // Adjust the step size for drawing speed
+
+            let drawInterval = setInterval(function() {
+                // Draw a small portion of the sketch
+                ctx.fillStyle = 'red'; // Example color
+                ctx.fillRect(x, y, 5, 5); // Example size
+
+                // Move to the next position
+                x += step;
+                if (x >= canvas.width) {
+                    x = 0;
+                    y += step;
+                }
+
+                // Check if drawing is complete
+                if (y >= canvas.height) {
+                    clearInterval(drawInterval); // Stop drawing
+                }
+            }, 10); // Adjust the interval for drawing speed
+        }
+
+        // Call the function to start drawing the cat sketch
+        drawCatSketch();
     </script>
 </body>
 </html>
