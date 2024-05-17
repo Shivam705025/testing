@@ -1,42 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Live Drawing Board</title>
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        background-color: #121212;
-        color: #ffffff;
-        font-family: Arial, sans-serif;
-    }
-    #canvas {
-        background-color: #1f1f1f;
-        display: block;
-        margin: 20px auto;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparent Dark-themed Board</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+        }
+
+        .board {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #catCanvas {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
-    <canvas id="canvas" width="800" height="600"></canvas>
+    <div class="board" id="board">
+        <canvas id="catCanvas"></canvas>
+    </div>
     <script>
-        const canvas = document.getElementById('canvas');
+        const canvas = document.getElementById('catCanvas');
         const ctx = canvas.getContext('2d');
-        ctx.strokeStyle = '#ff00ff'; // Initial sketch color
-        ctx.lineWidth = 3; // Initial line width
 
-        // Draw a cat
-        ctx.beginPath();
-        ctx.moveTo(50, 100);
-        ctx.quadraticCurveTo(100, 50, 150, 100);
-        ctx.quadraticCurveTo(170, 120, 150, 140);
-        ctx.lineTo(140, 160);
-        ctx.quadraticCurveTo(100, 200, 60, 160);
-        ctx.lineTo(50, 140);
-        ctx.quadraticCurveTo(30, 120, 50, 100);
-        ctx.stroke();
+        canvas.width = 600;
+        canvas.height = 400;
+
+        // Draw colorful cat sketch
+        // You need to replace this part with your own cat sketch drawing code
+        ctx.fillStyle = 'red';
+        ctx.fillRect(50, 50, 50, 50); // Sample drawing, replace this
+        ctx.fillStyle = 'blue';
+        ctx.fillRect(150, 150, 50, 50); // Sample drawing, replace this
+
+        // Add more drawing code to create your cat sketch
     </script>
 </body>
 </html>
