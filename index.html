@@ -26,45 +26,17 @@
         const ctx = canvas.getContext('2d');
         ctx.strokeStyle = '#ff00ff'; // Initial sketch color
         ctx.lineWidth = 3; // Initial line width
-        let isDrawing = false;
 
-        function draw(event) {
-            if (!isDrawing) return;
-            ctx.lineTo(event.offsetX, event.offsetY);
-            ctx.stroke();
-        }
-
-        canvas.addEventListener('mousedown', (event) => {
-            isDrawing = true;
-            ctx.beginPath();
-            ctx.moveTo(event.offsetX, event.offsetY);
-            canvas.addEventListener('mousemove', draw);
-        });
-
-        canvas.addEventListener('mouseup', () => {
-            isDrawing = false;
-            canvas.removeEventListener('mousemove', draw);
-        });
-
-        canvas.addEventListener('mouseout', () => {
-            isDrawing = false;
-            canvas.removeEventListener('mousemove', draw);
-        });
-
-        // Function to change sketch color
-        function changeColor(color) {
-            ctx.strokeStyle = color;
-        }
-
-        // Function to change line width
-        function changeLineWidth(width) {
-            ctx.lineWidth = width;
-        }
-
-        // Function to clear canvas
-        function clearCanvas() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-        }
+        // Draw a cat
+        ctx.beginPath();
+        ctx.moveTo(50, 100);
+        ctx.quadraticCurveTo(100, 50, 150, 100);
+        ctx.quadraticCurveTo(170, 120, 150, 140);
+        ctx.lineTo(140, 160);
+        ctx.quadraticCurveTo(100, 200, 60, 160);
+        ctx.lineTo(50, 140);
+        ctx.quadraticCurveTo(30, 120, 50, 100);
+        ctx.stroke();
     </script>
 </body>
 </html>
