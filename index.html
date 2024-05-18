@@ -3,78 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transparent Dark-themed Board</title>
+    <title>Cosmic Cat Coin</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #222;
-        }
-
-        .board {
-            position: relative;
-            width: 600px;
-            height: 400px;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
             overflow: hidden;
         }
 
-        #catCanvas {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
+        .container {
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #ffffff;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+            animation: glitter 1.5s infinite;
+        }
+
+        @keyframes glitter {
+            0%, 100% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        .colorful-text {
+            font-size: 2em;
+            background: linear-gradient(45deg, #ff0099, #493240);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        canvas {
+            margin-top: 20px;
+            max-width: 80%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="board" id="board">
-        <canvas id="catCanvas"></canvas>
+    <div class="container">
+        <header>
+            <h1 class="glitter">Cosmic Cat Coin</h1>
+        </header>
+        <main>
+            <section>
+                <h2 class="colorful-text">Token Distribution</h2>
+                <p>Overview of the distribution of Cosmic Cat Coin (CCC).</p>
+                <canvas id="myPieChart"></canvas>
+            </section>
+        </main>
     </div>
     <script>
-        const canvas = document.getElementById('catCanvas');
-        const ctx = canvas.getContext('2d');
-
-        canvas.width = 600;
-        canvas.height = 400;
-
-        // Define your cat sketch drawing code
-        function drawCatSketch() {
-            // Clear the canvas
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Draw the sketch gradually
-            let x = 0;
-            let y = 0;
-            let step = 5; // Adjust the step size for drawing speed
-
-            let drawInterval = setInterval(function() {
-                // Draw a small portion of the sketch
-                ctx.fillStyle = 'red'; // Example color
-                ctx.fillRect(x, y, 5, 5); // Example size
-
-                // Move to the next position
-                x += step;
-                if (x >= canvas.width) {
-                    x = 0;
-                    y += step;
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('myPieChart').getContext('2d');
+            const myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Development', 'Marketing', 'Team', 'Community', 'Reserve', 'Partnerships'],
+                    datasets: [{
+                        label: 'Token Distribution',
+                        data: [25, 15, 20, 10, 20, 10],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#ffffff'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return tooltipItem.label + ': ' + tooltipItem.raw + '%';
+                                }
+                            }
+                        }
+                    }
                 }
-
-                // Check if drawing is complete
-                if (y >= canvas.height) {
-                    clearInterval(drawInterval); // Stop drawing
-                }
-            }, 10); // Adjust the interval for drawing speed
-        }
-
-        // Call the function to start drawing the cat sketch
-        drawCatSketch();
+            });
+        });
     </script>
 </body>
 </html>
