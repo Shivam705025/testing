@@ -3,76 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmic Cat Coin Pie Chart</title>
+    <title>Cosmic Cat Coin Tokenomics</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #000;
             margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
         }
 
-        .chart-container {
-            position: relative;
-            width: 50%;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        .glitter {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        header h1 {
+            font-size: 3em;
+            color: #ff69b4; /* Hot pink color */
+            text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-container img {
             width: 100%;
-            height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/glitter.png') repeat;
-            background-size: contain;
-            animation: glitterEffect 1s infinite linear;
-            pointer-events: none;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
         }
 
-        @keyframes glitterEffect {
-            0% { opacity: 0.7; }
-            50% { opacity: 1; }
-            100% { opacity: 0.7; }
+        .text-container {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .text-container h2 {
+            font-size: 2em;
+            color: #1e90ff; /* Dodger blue color */
+            text-shadow: 0 0 5px #1e90ff, 0 0 10px #1e90ff, 0 0 15px #1e90ff;
+            margin: 10px 0;
+        }
+
+        .text-container h2 span {
+            color: #ff8c00; /* Dark orange color */
+            text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00, 0 0 15px #ff8c00;
         }
     </style>
 </head>
 <body>
-    <div class="chart-container">
-        <canvas id="myPieChart"></canvas>
-        <div class="glitter"></div>
+    <div class="container">
+        <header>
+            <h1>Cosmic Cat Coin Tokenomics</h1>
+        </header>
+        <section class="content">
+            <div class="image-container">
+                <img src="cosmic-cat.jpg" alt="Cosmic Cat Coin">
+            </div>
+            <div class="text-container">
+                <h2>Total Supply: <span>1,000,000,000 CCC</span></h2>
+                <h2>Circulating Supply: <span>500,000,000 CCC</span></h2>
+                <h2>Burn Rate: <span>2% per transaction</span></h2>
+                <h2>Staking Rewards: <span>5% annually</span></h2>
+                <h2>Development Fund: <span>10% of total supply</span></h2>
+                <h2>Marketing Fund: <span>5% of total supply</span></h2>
+            </div>
+        </section>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx = document.getElementById('myPieChart').getContext('2d');
-        const data = {
-            labels: ['Cosmic Cat Coin'],
-            datasets: [{
-                data: [100],
-                backgroundColor: ['#FFD700'],
-                hoverBackgroundColor: ['#FFEC8B'],
-                borderWidth: 0
-            }]
-        };
-
-        const options = {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: false
-                }
-            },
-            cutout: '70%'
-        };
-
-        new Chart(ctx, {
-            type: 'doughnut',
-            data: data,
-            options: options
-        });
-    </script>
 </body>
 </html>
