@@ -3,117 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cosmic Cat Coin</title>
+    <title>Cosmic Cat Coin Pie Chart</title>
     <style>
         body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            overflow: hidden;
+            background-color: #000;
+            margin: 0;
         }
 
-        .container {
-            text-align: center;
+        .chart-container {
+            position: relative;
+            width: 50%;
         }
 
-        header h1 {
-            font-size: 3em;
-            color: #ffffff;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
-            animation: glitter 1.5s infinite;
+        .glitter {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/glitter.png') repeat;
+            background-size: contain;
+            animation: glitterEffect 1s infinite linear;
+            pointer-events: none;
         }
 
-        @keyframes glitter {
-            0%, 100% {
-                text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5);
-            }
-            50% {
-                text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8);
-            }
-        }
-
-        .colorful-text {
-            font-size: 2em;
-            background: linear-gradient(45deg, #ff0099, #493240);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        canvas {
-            margin-top: 20px;
-            max-width: 80%;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        @keyframes glitterEffect {
+            0% { opacity: 0.7; }
+            50% { opacity: 1; }
+            100% { opacity: 0.7; }
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1 class="glitter">Cosmic Cat Coin</h1>
-        </header>
-        <main>
-            <section>
-                <h2 class="colorful-text">Token Distribution</h2>
-                <p>Overview of the distribution of Cosmic Cat Coin (CCC).</p>
-                <canvas id="myPieChart"></canvas>
-            </section>
-        </main>
+    <div class="chart-container">
+        <canvas id="myPieChart"></canvas>
+        <div class="glitter"></div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctx = document.getElementById('myPieChart').getContext('2d');
-            const myPieChart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: ['Development', 'Marketing', 'Team', 'Community', 'Reserve', 'Partnerships'],
-                    datasets: [{
-                        label: 'Token Distribution',
-                        data: [25, 15, 20, 10, 20, 10],
-                        backgroundColor: [
-                            '#FF6384',
-                            '#36A2EB',
-                            '#FFCE56',
-                            '#4BC0C0',
-                            '#9966FF',
-                            '#FF9F40'
-                        ],
-                        hoverOffset: 5
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                color: '#ffffff'
-                            }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(tooltipItem, data) {
-                                    var dataset = data.datasets[tooltipItem.datasetIndex];
-                                    var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
-                                        return previousValue + currentValue;
-                                    });
-                                    var currentValue = dataset.data[tooltipItem.index];
-                                    var percentage = Math.floor(((currentValue / total) * 100) + 0.5);
-                                    return dataset.label + ': ' + percentage + '%';
-                                }
-                            }
-                        }
-                    }
+        const ctx = document.getElementById('myPieChart').getContext('2d');
+        const data = {
+            labels: ['Cosmic Cat Coin'],
+            datasets: [{
+                data: [100],
+                backgroundColor: ['#FFD700'],
+                hoverBackgroundColor: ['#FFEC8B'],
+                borderWidth: 0
+            }]
+        };
+
+        const options = {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
                 }
-            });
+            },
+            cutout: '70%'
+        };
+
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: data,
+            options: options
         });
     </script>
 </body>
